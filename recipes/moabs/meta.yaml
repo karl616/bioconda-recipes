@@ -1,0 +1,38 @@
+{% set version = "condaTest" %}
+{% set sha256 = "a4f43369cf5bcad458646c6340d84af678024be946a10976c2f96b1a741e0c78" %}
+
+package:
+  name: moabs
+  version: {{ version }}
+
+source:
+  url: https://github.com/karl616/moabs/archive/{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - boost
+    - perl-config-simple
+  host:
+    - boost
+    - perl-config-simple
+  run:
+    - boost
+    - perl-config-simple
+
+test:
+  commands:
+    - moabs
+
+about:
+  home: https://github.com/sunnyisgalaxy/moabs
+  license: GPL3
+  summary: A comprehensive, accurate and efficient solution for analysis of large scale base-resolution DNA methylation data
+
+  #extra:
+        #  identifiers:
+          #    - biotools:moabs
